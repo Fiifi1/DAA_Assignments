@@ -2,7 +2,7 @@
 // NAME: Matthew Fiifi Hayford
 
 #include <iostream> 
-
+#include <time.h>
 using namespace std; 
  
 //LinearSearch method
@@ -49,18 +49,24 @@ void minMax(int list[], int size){
 //Main function
 int main(int argc, char *argv[]) 
 { 
+    srand(time(0));
 	int n, i, k;	//Intitializes variables size, key, and iterator
-	cout<<"Enter the size of the array:\t";
+	cout<<"Enter the size of the array\nRandom array of integers would be generated:\t";
 	cin>>n;
 
 	int array[n];	//Initializes the array of size n
 
-	for(i=0; i < n; i++){				//for loop to take in the array 
-		cout << "Enter number "<< (i+1) <<":\t";
-		cin >>array[i];
+    
+	for(i=0; i < n; i++){				//for loop to generate random array of integers 
+		array[i] = (rand() % 100) + 1;
 	}
-
-	cout<<"Enter the key value to search:\t";
+ 
+    cout<<"Random array generated\n";
+    for(int m=0; m<n; m++){
+        cout<<array[m]<<" ";
+    }
+ 
+	cout<<"\n\nEnter the key value to search:\t";
 	cin>>k;
 
 	int index = linearSearch(array,0, n-1, k);	//Linear search function to return the 
