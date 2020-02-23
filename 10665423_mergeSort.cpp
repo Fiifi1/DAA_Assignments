@@ -1,3 +1,5 @@
+// ID: 10665423
+// NAME: Matthew Fiifi Hayford
 
 #include<iostream> 
 using namespace std; 
@@ -16,9 +18,9 @@ void merge(int list[], int left, int mid, int right)
 	for (i = 0; i < temp1; i++) 
 		L[i] = list[left + i]; 
 	for (j = 0; j < temp2; j++) 
-		R[j] = list[right + 1+ j]; 
+		R[j] = list[mid + 1 + j]; 
 
-	// Merge the temporary arrays into list[l..r]
+	// Merge the temporary arrays into list
 	
 	i = 0; 
 	j = 0; 
@@ -58,12 +60,12 @@ void merge(int list[], int left, int mid, int right)
 
 void mergeSort(int list[], int low, int high) 
 { 
-	while (low < high) 
+	if (low < high) 
 	{ 
 		int mid = low+(high-low)/2; 
 
 		// Sort both halves 
-		mergeSort(list, low, high); 
+		mergeSort(list, low, mid); 
 		mergeSort(list, mid + 1, high); 
 
 		merge(list, low, mid, high); 
