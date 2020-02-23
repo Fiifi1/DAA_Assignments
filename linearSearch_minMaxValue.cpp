@@ -20,6 +20,31 @@ int linearSearch(int list[], int low, int high, int key)
 	// The method searches both sides of the arary and completes with a complexity of n/2
 }
 
+//Method that returns minimum and maximum value from a list of integers
+void minMax(int list[], int size){
+    int min = list[0]; //set the minValue to the first in the array
+    int max = list[0]; //set the maxValue to the first in the array
+    
+    for(int j = 1; j<size; j++){
+		if(min > list[j])
+		{
+			min=list[j]; //switches the minValue if the condition is true
+		}
+		else if(max<list[j])
+		{
+			max = list[j]; //Switches the maxValue if the condition is true
+		}
+	}
+
+    cout<<"\nList of numbers\n";
+    for(int k=0; k<size; k++){
+        cout<<list[k]<<" ";
+    }
+    cout<<"\nMaximum number is: "<< max << endl;
+    cout<<"Minimum number is: "<< min << endl;
+
+}
+
 
 //Main function
 int main(int argc, char *argv[]) 
@@ -45,6 +70,8 @@ int main(int argc, char *argv[])
     	cout << "Item " << k << " is present at index "<< index<<endl; 
     else
         cout << "Item " << k << " is not present in the list"<<endl;
+        
+    minMax(array, n);   // Prints the minimum and maximum values from the list
 
     return 0; 
 } 
