@@ -1,33 +1,41 @@
 #include <iostream>
-using namespace std;
-int main ()
-{
-int mn,mx;
-const int Numb = 10;
-int a[Numb]; //10 elements
-cout<<"Enter 10 values:"; //prompts user for 10 values.
-for(int i=0;i<10;i++)
-{
-cout<< "\nEnter value: ";
-cin>> a[i]; // puts values in array
-}
 
-mn=a[0];
-mx=a[0];
-for(int i=1;i<10;i++)
-	{
-		if(mn>a[i])
+using namespace std;
+
+int main (int argc, char **argv)
+{
+    int min, max, size;
+    
+    cout<<"Enter size of List:\t";
+    cin>>size;
+    
+    int list[size]; //initializes array with entered size
+    
+    for(int i=0; i<size; i++){
+        cout<< "Enter value for array number "<<i+1<<": ";
+        cin>> list[i]; // puts values in array
+    }
+
+    min = list[0]; //set the minValue to the first in the array
+    max = list[0]; //set the maxValue to the first in the array
+    
+    for(int j = 1; j<size; j++){
+		if(min > list[j])
 		{
-			mn=a[i];
+			min=list[j]; //switches the minValue if the condition is true
 		}
-		else if(mx<a[i])
+		else if(max<list[j])
 		{
-			mx = a[i];
+			max = list[j]; //Switches the maxValue if the condition is true
 		}
 	}
 
-cout<<"Maximum number is: "<< mx << endl;
-cout<<"Minimum number is: "<< mn << endl;
+    cout<<"\nList of numbers\n";
+    for(int k=0; k<size; k++){
+        cout<<list[k]<<" ";
+    }
+    cout<<"\nMaximum number is: "<< max << endl;
+    cout<<"Minimum number is: "<< min << endl;
 
 return 0;
 
