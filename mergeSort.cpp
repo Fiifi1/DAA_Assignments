@@ -2,6 +2,7 @@
 // NAME: Matthew Fiifi Hayford
 
 #include<iostream> 
+#include<time.h>
 using namespace std; 
 
 //Merge Function that takes in two arrays 
@@ -86,14 +87,15 @@ void displayArray(int A[], int size)
 int main() 
 { 
     int size;
-    cout<<"Enter size of array to be sorted:\t";
+    cout<<"Enter size of array to be sorted\nArray of integers would be generated at random:\t";
     cin>>size;
     
     int arrToBeSorted[size];
     
+    srand(time(0));
+    cout<<"Random array of integers generated! (1-100)"<<endl;
     for (int i=0; i < size; i++){
-        cout<<"Enter value of array number "<<i+1<<" :\t";
-        cin>>arrToBeSorted[i];
+        arrToBeSorted[i] = (rand() % 100) + 1;
     }
 
 	cout<<"Given array is \n"; 
