@@ -1,9 +1,12 @@
 // ID: 10665423
 // NAME: Matthew Fiifi Hayford
 
-#include<iostream> 
-#include<time.h>
+#include <iostream> 
+#include <time.h>
+#include <chrono>
+
 using namespace std; 
+using namespace std::chrono;
 
 //Merge Function that takes in two arrays 
 void merge(int list[], int left, int mid, int right) 
@@ -100,11 +103,22 @@ int main()
 
 	cout<<"Given array is \n"; 
 	displayArray(arrToBeSorted, size); 
+	
+	// Get starting timepoint 
+    auto init = high_resolution_clock::now(); 
 
 	mergeSort(arrToBeSorted, 0, size - 1); 
+	
+	// Get ending timepoint 
+    auto end = high_resolution_clock::now();
 
 	cout<<"\nSorted array is \n"; 
 	displayArray(arrToBeSorted, size);
+	
+	//Print out execution time
+	auto duration = duration_cast<microseconds>(end - init); 
+    cout << "Time taken by function (Execution Time): "
+         << duration.count() << " microseconds" << endl;
 	
 	return 0; 
 } 
