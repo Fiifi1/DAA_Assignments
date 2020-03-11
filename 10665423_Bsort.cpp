@@ -3,11 +3,11 @@
 
 using namespace std;
 
-void swapFunction(int *xp, int *yp)  
+void swapFunction(int *left, int *right)  
 {  
-    int temp = *xp;  
-    *xp = *yp;  
-    *yp = temp;  
+    int temp = *left;  
+    *left = *right;  
+    *right = temp;  
 }  
   
 // A function to implement bubble sort  
